@@ -166,7 +166,7 @@ const UpdateUserProfile = ({ activateUpdateTab, activeUserCurrentData }) => {
       navigate("/auth");
       return;
     }
-    const api = "http://localhost:8080/api/user/update-user";
+    const api = `${import.meta.env.VITE_SERVER_URL}/api/user/update-user`;
     const bodyData = {
       avatar: userImageField ,
       first_name: useFirstNameUpdate,

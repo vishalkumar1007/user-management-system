@@ -68,7 +68,7 @@ const AddUser = ({ openAddNewUserSection }) => {
   }
 
   const handelToAddUserWithApi = async()=>{
-    const api = `http://localhost:8080/api/user/sign-up`;
+    const api = `${import.meta.env.VITE_SERVER_URL}/api/user/sign-up`;
     const body = {
       avatar:`${userImageField}`,
       first_name:`${useFirstNameAddUser}`,

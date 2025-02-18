@@ -37,7 +37,7 @@ const UserAuth = () => {
 
   // verify token if token exist
   const verifyTheToken = async (token) => {
-    const api = "http://localhost:8080/api/user/verify-token";
+    const api = `${import.meta.env.VITE_SERVER_URL}/api/user/verify-token`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -102,7 +102,7 @@ const UserAuth = () => {
   }
 
   const handelToSignUpUserWithApi = async()=>{
-    const api = `http://localhost:8080/api/user/sign-up`;
+    const api = `${import.meta.env.VITE_SERVER_URL}/api/user/sign-up`;
     const body = {
       avatar:`${null}`,
       first_name:`${useFirstNameSignup}`,
@@ -147,7 +147,7 @@ const UserAuth = () => {
  };
 
  const handelToLoginUserWithApi = async()=>{
-  const api = `http://localhost:8080/api/user/login?email=${userInputEmailId}&password=${userInputPassword}`;
+  const api = `${import.meta.env.VITE_SERVER_URL}/api/user/login?email=${userInputEmailId}&password=${userInputPassword}`;
     const response = await fetch(api,{
       method:'GET',
       headers:{

@@ -10,8 +10,8 @@ import { LoadUserManagementContext } from "./context/LoadUserManagementContext";
 function App() {
   return (
     <LoadUserManagementContext>
-      <BrowserRouter>
-        <Routes>
+      <BrowserRouter basename="/user-management-system">
+        <Routes >
           <Route path="/" element={<Home />} />
           <Route path="/auth" element={<UserAuth />} />
           <Route path="/auth/forgot-password" element={<ForgotPassword />} />

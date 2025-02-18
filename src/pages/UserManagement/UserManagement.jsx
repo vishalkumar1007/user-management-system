@@ -23,7 +23,7 @@ const UserManagement = () => {
   };
 
   const verifyTheToken = async (token) => {
-    const api = "http://localhost:8080/api/user/verify-token";
+    const api = `${import.meta.env.VITE_SERVER_URL}/api/user/verify-token`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -81,7 +81,7 @@ const UserManagement = () => {
         return;
       }
 
-      const api = `http://localhost:8080/api/user/all-user`;
+      const api = `${import.meta.env.VITE_SERVER_URL}/api/user/all-user`;
 
       const response = await fetch(api, {
         method: "GET",

@@ -40,7 +40,7 @@ const ForgotPassword = () => {
       }
 
       if(updateToken){
-        const api = `http://localhost:8080/api/user/verify-token`;
+        const api = `${import.meta.env.VITE_SERVER_URL}/api/user/verify-token`;
         const response = await fetch(api,{
           method:'GET',
           headers:{
@@ -169,7 +169,7 @@ const ForgotPassword = () => {
 
   const handelToSendForgotLinkToUserEmail = async (email) => {
     setIsLoadingSendEmail(true);
-    const api = `http://localhost:8080/api/user/forgot-password?email=${email}`;
+    const api = `${import.meta.env.VITE_SERVER_URL}/api/user/forgot-password?email=${email}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -281,7 +281,7 @@ const ForgotPassword = () => {
   const updateUserPasswordWithApi = async ()=>{
     const queryParams = new URLSearchParams(location.search);
     const updateToken = queryParams.get('token');
-    const api = `http://localhost:8080/api/user/updatePassword`;
+    const api = `${import.meta.env.VITE_SERVER_URL}/api/user/updatePassword`;
     const body = {
       email:updateUserEmailFromToken,
       password:userInputNewPassword
