@@ -1,0 +1,345 @@
+.UpdateUserProfile_main {
+  /* background-color: rgb(148, 69, 69); */
+  background-color: rgb(32, 33, 33);
+  width: 90%;
+  max-width: 400px;
+  max-height: 600px;
+  height: 75%;
+  backdrop-filter: blur(5px);
+  border: 1px solid #acacac4a;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 0px #000000;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: 10px;
+}
+#d_btn {
+  background-color: rgba(145, 36, 36, 0.147);
+  /* background-color: #aa2222; */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #861a1a30;
+}
+#d_btn svg {
+  /* background-color: forestgreen; */
+  width: 30px;
+}
+
+.UpdateUserProfile_main_top {
+  /* background-color: rgba(34, 139, 34, 0.405); */
+  height: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.UpdateUserProfile_main_top_title {
+  font-size: 20px;
+  color: #bbbbbb61;
+  /* font-weight: bold; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.UpdateUserProfile_main_bottom {
+  /* background-color: rgba(255, 0, 0, 0.305); */
+  height: 93%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+/* toast.error("Please enter password", {
+    style: {
+      color: "#d92525e1",
+    },
+  }); */
+
+  
+
+  
+  .UserAuth_main{
+    background-color:#171717;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* Auth Container */
+  .auth-container {
+    background-color: #171717;
+    /* background-color: rebeccapurple; */
+    width: 100%;
+    max-width: 400px;
+    color: #333;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .form-wrapper h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #a3a3a3;
+  }
+
+  .UserAuth_main_login_section{
+    /* background-color: #2574fca0; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  /* Form Fields */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .update_auth_input{
+    background-color: #171717;
+    padding: 10px 15px;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #b2b2b2;
+  }
+  
+  .update_auth_input:focus {
+    border-color: #19a43299;
+    outline: none;
+    box-shadow: 0 0 5px #19a4327c;
+  }
+  #update_auth_input_error{
+    border-color: #d809098d;
+    outline: none;
+    box-shadow: 0 0 6px rgba(252, 37, 37, 0.57);
+}
+  /* Button */
+  .user_data_update_btn {
+    background-color: #0a581128;
+    color: #19a432;
+    border: 1px solid #0e7422d5;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+  }
+  
+  .user_data_update_btn:hover {
+    box-shadow: 0px 0px 7px #11cb3052;
+  }
+  
+  /* Toggle Text */
+  .toggle-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #525252;
+    font-size: 13px;
+  }
+  
+  .toggle-text span {
+    color: #2574fca0;
+    cursor: pointer;
+    font-weight: bold;
+    /* text-decoration: underline; */
+  }
+  #goto_chose_section{
+    /* background-color: #333; */
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+  #goto_chose_section_btn{
+    background-color: transparent;
+    border: none;
+    color: rgb(33, 32, 32);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  #goto_chose_section_btn:hover{
+    color: rgb(53, 53, 53);
+  }
+
+  
+
+  .UserAuthOrContinueWith{
+    /* background-color: rgb(255, 255, 255); */
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .UserAuthOrContinueWith_arrange{
+    /* background-color: green; */
+    width: 100%;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .UserAuthOrContinueWithLeftLine{
+    background-color: #4e4e4e;
+    width: 30%;
+    height: 0.8px;
+  }
+  .UserAuthOrContinueWithText{
+    font-size: 12px;
+    padding: 0px 10px;
+    color: #787878;
+    font-weight: 500;
+  }
+  .UserAuthOrContinueWithRightLine{
+    background-color: #4e4e4e;
+    width: 30%;
+    height: 0.8px;
+  }
+
+  .type_heading{
+    width: 100%;
+    padding: 0px 0px 50px 0px;
+    font-size: 24px;
+    font-weight: 700;
+    /* color: #303031; */
+    color: antiquewhite;
+  }
+  .userAuthOption{
+    /* background-color: darkcyan; */
+    width: 100%;
+    /* height: ; */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .continueWithGithubBtn{
+    background-color: #3f2dcb00;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .continueWithGithubBtn:hover{
+    background-color: #4c159e15;
+  }
+  .continueWithGithubBtn img{
+    /* width: 100%; */
+    height: 120%;
+  }
+
+  .continueWithupdate{
+    background-color: #3f2dcb00;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dfdfdf;
+    font-size: 13px;
+  }
+  .continueWithupdate{
+    border-color: #16729a;
+    border-color: #4651b9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(33, 143, 222, 0.5);
+    box-shadow: 0 0 5px #364094d8;
+  }
+  .continueWithupdate:hover{
+    background-color: #46b951;
+    /* box-shadow: none; */
+    background-color: #2d357918;
+    
+  }
+
+  .UserAuth_main_update_section{
+    /* background-color: #16729a; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .UserAuth_main_update_section_input_div{
+    /* background-color: yellow; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .update_error_msg_show{
+    /* width: 100%; */
+    height: 15px;
+    /* background-color: red; */
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    color: rgba(208, 21, 21, 0.745);
+    padding-left: 10px;
+    padding-top: 1px;
+  }
+  .UserAuth_main_update_section_user_profile_image{
+    /* background-color: #16729a; */
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+  }
+  .UserAuth_main_update_section_user_profile_image_main{
+    background-color: rgb(24, 24, 24);
+    width: 105px;
+    height: 105px;
+    /* border-radius: 50%; */
+    border: 2px dashed #4d4d4d;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .UserAuth_main_update_section_user_profile_image_main img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    /* z-index: 10; */
+  }
