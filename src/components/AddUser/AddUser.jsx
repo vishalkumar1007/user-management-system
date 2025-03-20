@@ -42,9 +42,11 @@ const AddUser = ({ openAddNewUserSection }) => {
     useState("invalid input");
 
     const { data, updateData } = useContext(DataContext);
+    const [loading , setLoading] = useState(false);
   // handel to add new user
 
   const handelToAddUserUser = async ()=>{
+    setLoading(true)
     if(verifyUserInputForAddUser()){
       const {success,json_res} = await handelToAddUserWithApi();
       if(success===true){
@@ -55,6 +57,7 @@ const AddUser = ({ openAddNewUserSection }) => {
         });
         handelToCloseAddNewUserSection();
         updateData(!data)
+        setLoading(false);
       }
       else if(success===false){
         // console.log((json_res.msg))
@@ -63,8 +66,10 @@ const AddUser = ({ openAddNewUserSection }) => {
             color: "#d92525e1",
           },
         });
+        setLoading(false);
       }
     }
+    setLoading(false);
   }
 
   const handelToAddUserWithApi = async()=>{
@@ -511,7 +516,31 @@ const AddUser = ({ openAddNewUserSection }) => {
             className="user_data_add_btn"
             onClick={() => handelToAddUserUser()}
           >
-            UPLOAD
+            {loading ? (
+              <svg
+                id="forgot_loading_svg_icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2v4" />
+                <path d="m16.2 7.8 2.9-2.9" />
+                <path d="M18 12h4" />
+                <path d="m16.2 16.2 2.9 2.9" />
+                <path d="M12 18v4" />
+                <path d="m4.9 19.1 2.9-2.9" />
+                <path d="M2 12h4" />
+                <path d="m4.9 4.9 2.9 2.9" />
+              </svg>
+            ) : (
+              "UPLOAD"
+            )}
           </button>
         </div>
       </div>

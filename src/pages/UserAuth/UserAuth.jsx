@@ -33,6 +33,7 @@ const UserAuth = () => {
   const [UserPasswordSignupErrorMsg, setUserPasswordSignupErrorMsg] = useState("invalid input");
   const [UserConformPasswordSignupErrorMsg,setUserConformPasswordSignupErrorMsg] = useState("invalid input");
   const [isLogin, setIsLogin] = useState(true);
+  const [loading,setLoading] = useState(false);
 
 
   // verify token if token exist
@@ -81,6 +82,7 @@ const UserAuth = () => {
   // api call for sign-up
   
   const handelToSIgnUpUser = async ()=>{
+    setLoading(true);
     if(verifyUserInputForSignUP()){
       const {success,json_res} = await handelToSignUpUserWithApi();
       if(success===true){
@@ -90,6 +92,7 @@ const UserAuth = () => {
           },
         });
         setIsLogin(true)
+        setLoading(false);
       }
       else if(success===false){
         toast.error(`${json_res.msg}`, {
@@ -97,6 +100,7 @@ const UserAuth = () => {
             color: "#d92525e1",
           },
         });
+        setLoading(false);
       }
     }
   }
@@ -126,6 +130,7 @@ const UserAuth = () => {
 
   // api call for sign-up
   const handelToLoginUser = async () => {
+    setLoading(true);
     if(verifyUserInputForLogin()){
       const {success,json_res} = await handelToLoginUserWithApi();
       if(success===true){
@@ -135,6 +140,7 @@ const UserAuth = () => {
           },
         });
         navigate('/userManagement')
+        setLoading(false)
       }
       else if(success===false){
         toast.error(`${json_res.msg}`, {
@@ -142,8 +148,10 @@ const UserAuth = () => {
             color: "#d92525e1",
           },
         });
+        setLoading(false);
       }
    }
+   setLoading(false)
  };
 
  const handelToLoginUserWithApi = async()=>{
@@ -447,7 +455,12 @@ const UserAuth = () => {
                     className="btn"
                     onClick={handelToLoginUser}
                   >
-                    Login
+                    {
+                    loading?
+                    <svg id="forgot_loading_svg_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
+                    :
+                    'Login'
+                  }
                   </button>
                 </div>
               ) : (
@@ -559,7 +572,12 @@ const UserAuth = () => {
                   </div>
 
                   <button type="submit" className="btn" onClick={()=>handelToSIgnUpUser()}>
-                    Sign Up
+                  {
+                    loading?
+                    <svg id="forgot_loading_svg_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
+                    :
+                    'Sign Up'
+                  }
                   </button>
                 </div>
               )}

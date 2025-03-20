@@ -35,6 +35,7 @@ const UpdateUserProfile = ({ activateUpdateTab, activeUserCurrentData }) => {
   const [userInputBioAddUserErrorMsg, setUserInputBioAddUserErrorMsg] =
     useState("invalid input");
   const { data, updateData } = useContext(DataContext);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // console.log(activeUserCurrentData)
@@ -168,7 +169,7 @@ const UpdateUserProfile = ({ activateUpdateTab, activeUserCurrentData }) => {
     }
     const api = `${import.meta.env.VITE_SERVER_URL}/api/user/update-user`;
     const bodyData = {
-      avatar: userImageField ,
+      avatar: userImageField,
       first_name: useFirstNameUpdate,
       last_name: userLastNameUpdate,
       bio: userInputBioAddUser,
@@ -191,6 +192,7 @@ const UpdateUserProfile = ({ activateUpdateTab, activeUserCurrentData }) => {
   };
 
   const handelToUpdateUser = async () => {
+    setLoading(true);
     if (!verifyUserInputForUpdate()) {
       return;
     }
@@ -203,7 +205,8 @@ const UpdateUserProfile = ({ activateUpdateTab, activeUserCurrentData }) => {
           color: "#19b030d0",
         },
       });
-      updateData(!data)
+      updateData(!data);
+      setLoading(false);
     }
 
     if (!response) {
@@ -212,8 +215,10 @@ const UpdateUserProfile = ({ activateUpdateTab, activeUserCurrentData }) => {
           color: "#d92525e1",
         },
       });
+      setLoading(false);
       return;
     }
+    setLoading(false);
   };
 
   return (
@@ -374,7 +379,31 @@ const UpdateUserProfile = ({ activateUpdateTab, activeUserCurrentData }) => {
             className="user_data_update_btn"
             onClick={() => handelToUpdateUser()}
           >
-            Update
+            {loading ? (
+              <svg
+                id="forgot_loading_svg_icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2v4" />
+                <path d="m16.2 7.8 2.9-2.9" />
+                <path d="M18 12h4" />
+                <path d="m16.2 16.2 2.9 2.9" />
+                <path d="M12 18v4" />
+                <path d="m4.9 19.1 2.9-2.9" />
+                <path d="M2 12h4" />
+                <path d="m4.9 4.9 2.9 2.9" />
+              </svg>
+            ) : (
+              "UPDATE"
+            )}
           </button>
         </div>
       </div>

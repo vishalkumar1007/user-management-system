@@ -25,6 +25,7 @@ const ForgotPassword = () => {
   const [emailSendSuccessfullyToUser , setEmailSendSuccessfullyToUser] = useState(false);
   const [updateUserEmailFromToken , setUpdateUserEmailFromToken] = useState('');
   const location = useLocation();
+  const [loading , setLoading] = useState(false);
 
   useEffect(()=>{
     setEmailSendSuccessfullyToUser(false);
@@ -220,7 +221,7 @@ const ForgotPassword = () => {
   },[])
 
   const handelToUpdateUserPassword = async() => {
-
+    setLoading(true);
     if (
       (userInputNewPassword.length > 0 ||
         userInputConformPassword.length > 0) &&
@@ -267,6 +268,7 @@ const ForgotPassword = () => {
             color: "#19b030d0",
           },
         });
+        setLoading(false);
         navigate('/auth')
       }else{
         toast.error(`${updatePasswordStatus.msg}`, {
@@ -274,7 +276,9 @@ const ForgotPassword = () => {
             color: "#d92525e1",
           },
         });
+        setLoading(false);
       }
+      setLoading(false);
     }
   };
 
@@ -331,6 +335,7 @@ const ForgotPassword = () => {
                   type="submit"
                   className="forgot_pass_btn"
                   onClick={() => sendOtpToUserEmailId()}
+                  disabled={isLoadingSendEmail}
                 >
                   {
                     isLoadingSendEmail?
@@ -382,7 +387,7 @@ const ForgotPassword = () => {
                         : null
                     }
                     className="forgot_password_input"
-                    type="text"
+                    type="password"
                     placeholder="New Password"
                     value={userInputNewPassword}
                     required
@@ -405,7 +410,7 @@ const ForgotPassword = () => {
                         : null
                     }
                     className="forgot_password_input"
-                    type="text"
+                    type="password"
                     placeholder="Conform Password"
                     value={userInputConformPassword}
                     onChange={(e) =>
@@ -430,8 +435,14 @@ const ForgotPassword = () => {
                     type="submit"
                     className="forgot_pass_btn"
                     onClick={() => handelToUpdateUserPassword()}
+                    disabled={loading}
                   >
-                    Update Password
+                    {
+                    loading?
+                    <svg id="forgot_loading_svg_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
+                    :
+                    'Update Password'
+                  }
                   </button>
                 </div>
                 <button
